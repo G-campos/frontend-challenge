@@ -12,7 +12,7 @@ Queremos ver a legibilidade e seu design de código, as boas práticas de desenv
 
 Você deverá desenvolver uma tela de resumo de um cliente. Nela serão apresentadas informações sobre o cliente, oportunidades, informações financeiras e atividades. Gostamos muito de mapas e indicadores.
 
-![Resumo de Cliente](./images/client-summary.png)
+![Resumo de Cliente](./_images/client-summary.png)
 
 Crie um projeto para apresentar a tela e componentes com o estilo que desejar.
 

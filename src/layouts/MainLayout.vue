@@ -1,31 +1,74 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
           flat
-          dense
           round
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
+      :mini="miniState"
+      @mouseover="miniState = false"
+      @mouseout="miniState = true"
+      :width="200"
+      :breakpoint="500"
       bordered
-      content-class="bg-grey-1"
+      content-class="bg-grey-3"
     >
-      <q-list>
+     <q-list padding>
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="inbox" />
+        </q-item-section>
+
+        <q-item-section>
+          Inbox
+        </q-item-section>
+      </q-item>
+
+      <q-item active clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="star" />
+        </q-item-section>
+
+        <q-item-section>
+          Star
+        </q-item-section>
+      </q-item>
+
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="send" />
+        </q-item-section>
+
+        <q-item-section>
+          Send
+        </q-item-section>
+      </q-item>
+
+      <q-separator />
+
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="drafts" />
+        </q-item-section>
+
+        <q-item-section>
+          Drafts
+        </q-item-section>
+      </q-item>
+    </q-list>
+
+      <!-- <q-list>
         <q-item-label
           header
           class="text-grey-8"
@@ -37,7 +80,7 @@
           :key="link.title"
           v-bind="link"
         />
-      </q-list>
+      </q-list> -->
     </q-drawer>
 
     <q-page-container>
@@ -47,7 +90,7 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
+/* import EssentialLink from 'components/EssentialLink.vue' */
 
 const linksData = [
   {
@@ -96,11 +139,12 @@ const linksData = [
 
 export default {
   name: 'MainLayout',
-  components: { EssentialLink },
+  /* components: { EssentialLink }, */
   data () {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData
+      essentialLinks: linksData,
+      miniState: true
     }
   }
 }
