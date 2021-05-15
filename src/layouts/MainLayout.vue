@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated>
+    <q-header>
       <q-toolbar>
         <q-btn
           flat
@@ -35,7 +35,7 @@
         </q-item-section>
       </q-item>
 
-      <q-item active clickable v-ripple>
+      <q-item clickable v-ripple>
         <q-item-section avatar>
           <q-icon name="star" />
         </q-item-section>
@@ -67,20 +67,6 @@
         </q-item-section>
       </q-item>
     </q-list>
-
-      <!-- <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list> -->
     </q-drawer>
 
     <q-page-container>
