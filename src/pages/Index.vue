@@ -27,7 +27,7 @@
           </q-item-section>
           <q-item-section class="col-11">
             <q-item-label>
-              ({{pessoa.ddd}}) {{pessoa.celular}}
+              ({{pessoa.contato.ddd}}) {{pessoa.contato.celular}}
             </q-item-label>
             <q-item-label>
               Telefone
@@ -40,7 +40,7 @@
           </q-item-section>
           <q-item-section class="col-11">
             <q-item-label>
-              {{pessoa.email}}
+              {{pessoa.contato.email}}
             </q-item-label>
             <q-item-label>
               Email
@@ -68,11 +68,94 @@
       </q-card>
 
       <q-card class="col-6">
-        teste card 2
+        <span class="q-pa-md text-h5">Local</span>
+        <div class="">
+          google maps
+        </div>
+        <q-item class="row">
+          <q-item-section class="col-1" style="font-size: 2em">
+            <q-icon name="mdi-map-marker"/>
+          </q-item-section>
+          <q-item-section class="col-11">
+            <q-item-label>
+              {{pessoa.endereco.logradouro + ' ' +pessoa.endereco.rua }}, {{pessoa.endereco.numero}}
+            </q-item-label>
+            <q-item-label>
+              {{pessoa.endereco.referencia}}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
       </q-card>
 
-      <q-card class="col-6">
-        teste card 3
+      <q-card class="col-6 row">
+        <span class="q-pa-md text-h5">Oportunidades ({{totalOportunidades}})  <q-btn flat round icon="mdi-information"/></span>
+        <q-item class="col-6 row">
+          <q-item-section class="col-2" style="font-size: 2em">
+            <q-chip square>
+              <q-avatar color="green" text-color="white">{{totalOportunidades}}</q-avatar>
+            </q-chip>
+          </q-item-section>
+          <q-item-section class="col-10">
+            <q-item-label>
+              {{statusOportunidades[0]}}
+            </q-item-label>
+            <q-item-label>
+              R$ {{oportunidades.ganhas}}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item class="col-6 row">
+          <q-item-section class="col-2" style="font-size: 2em">
+            <q-chip square>
+              <q-avatar color="red" text-color="white">{{totalOportunidades}}</q-avatar>
+            </q-chip>
+          </q-item-section>
+          <q-item-section class="col-10">
+            <q-item-label>
+              {{statusOportunidades[1]}}
+            </q-item-label>
+            <q-item-label>
+              R$ {{oportunidades.perdidas}}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item class="col-6 row">
+          <q-item-section class="col-2" style="font-size: 2em">
+            <q-chip square>
+              <q-avatar color="blue" text-color="white">{{totalOportunidades}}</q-avatar>
+            </q-chip>
+          </q-item-section>
+          <q-item-section class="col-10">
+            <q-item-label>
+              {{statusOportunidades[2]}}
+            </q-item-label>
+            <q-item-label>
+              {{oportunidades.abertas}}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item class="col-6 row">
+          <q-item-section class="col-2" style="font-size: 2em">
+            <q-chip square>
+              <q-avatar color="brown" text-color="white">{{totalOportunidades}}</q-avatar>
+            </q-chip>
+          </q-item-section>
+          <q-item-section class="col-10">
+            <q-item-label>
+              {{statusOportunidades[3]}}
+            </q-item-label>
+            <q-item-label>
+              {{oportunidades.descartadas}}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item>
+          <q-btn flat color="primary" label="VER TODAS OPORTUNIDADES" />
+        </q-item>
       </q-card>
 
       <q-card class="col-6">
@@ -99,6 +182,7 @@
 <script>
 export default {
   name: 'PageIndex',
+  components: {  },
   data() {
     return {
       lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -106,15 +190,45 @@ export default {
         nome: 'Fulana de Tal',
         empresa: 'Acme inc.',
         status: 'Ativo',
-        ddd: '45',
-        celular: '99555-5555',
-        email: 'fulana@email.com',
-        whatsapp: '',
-        facebook: '',
-        instagram: '',
-        twitter: '',
-        linkedin: ''
-      }
+        contato: {
+          ddd: '45',
+          celular: '99555-5555',
+          email: 'fulana@email.com',
+        },
+        social: {
+          whatsapp: '',
+          facebook: '',
+          instagram: '',
+          twitter: '',
+          linkedin: '',
+        },
+        endereco: {
+          logradouro: 'Avenida',
+          rua: 'Brasil',
+          numero: '4019',
+          referencia: 'Trabalho',
+          maps: {}
+        },
+        oportunidades: [
+          {
+            status: '',
+            valor: ''
+          }
+        ]
+      },
+      oportunidades: {
+        ganhas: '20.000,00',
+        perdidas: '4.300,00',
+        abertas: 'Diversas moedas',
+        descartadas: '-'
+      },
+      totalOportunidades: Math.floor(Math.random() * 10),
+      statusOportunidades: [
+        'Ganhas',
+        'Perdidas',
+        'Abertas',
+        'Descartadas'
+      ],
     }
   },
 }

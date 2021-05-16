@@ -10,10 +10,11 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.4",
+    "@googlemaps/loader": "0.0.10",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "google-maps": "^4.3.3",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
