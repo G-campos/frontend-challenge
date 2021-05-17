@@ -184,7 +184,7 @@
       <q-item class="col-12">
         <q-item-section>
           <q-item-label>
-            Adicionar um gráfico aqui
+            <chart />
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -415,11 +415,14 @@
 </template>
 
 <script>
-/* import TravelMap from "./components/TravelMap"; */
+import Chart from 'src/components/charts/Chart.vue'
 
 export default {
   name: 'PageIndex',
-  components: { /* TravelMap */ },
+  components: {
+    Chart
+
+  },
   data() {
     return {
       lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -600,7 +603,7 @@ export default {
         backgroundColor: '#027be3',
         width: '9px',
         opacity: 0.2
-      }
+      },
     }
   }
 }
