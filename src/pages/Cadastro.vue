@@ -6,7 +6,7 @@
 <script>
 
 export default {
-  name: 'Resumo',
+  name: 'Cadastro',
   data() {
     return {
     }
