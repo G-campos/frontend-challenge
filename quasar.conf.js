@@ -20,7 +20,8 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://v1.quasar.dev/quasar-cli/boot-files
     boot: [
-      'axios'
+      'axios',
+      'vuelidate'
     ],
 
     // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -80,8 +81,10 @@ module.exports = function (/* ctx */) {
     // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-us', // Quasar language pack
-      config: {},
+      lang: 'pt-br', // Quasar language pack
+      config: {
+        dark: false
+      },
 
       // Possible values for "importStrategy":
       // * 'auto' - (DEFAULT) Auto-import needed Quasar components & directives
@@ -93,10 +96,17 @@ module.exports = function (/* ctx */) {
       // you can manually specify Quasar components/directives to be available everywhere:
       //
       // components: [],
-      // directives: [],
+      directives: [
+        'Ripple', 'ClosePopup'
+      ],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Notify',
+        'Loading',
+        'Dialog',
+        'Meta'
+      ]
     },
 
     // animations: 'all', // --- includes all animations

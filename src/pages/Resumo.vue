@@ -21,32 +21,34 @@
           </q-chip>
         </q-item-section>
       </q-item>
-      <q-item class="row col-12">
-        <q-item-section class="col-1" style="font-size: 2em">
-          <q-icon name="mdi-phone" />
-        </q-item-section>
-        <q-item-section class="col-11">
-          <q-item-label>
-            ({{pessoa.contato.ddd}}) {{pessoa.contato.celular}}
-          </q-item-label>
-          <q-item-label>
-            Telefone
-          </q-item-label>
-        </q-item-section>
-      </q-item>
-      <q-item class="row col-12">
-        <q-item-section class="col-1" style="font-size: 2em">
-          <q-icon name="mdi-email" />
-        </q-item-section>
-        <q-item-section class="col-11">
-          <q-item-label>
-            {{pessoa.contato.email}}
-          </q-item-label>
-          <q-item-label>
-            Email
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+      <div v-for="contato in pessoa.contato" :key="contato.descricao" class="row col-12">
+        <q-item class="col-12">
+          <q-item-section class="col-1" style="font-size: 2em">
+            <q-icon name="mdi-phone" />
+          </q-item-section>
+          <q-item-section class="col-11">
+            <q-item-label>
+              <a :href="'tel:'+ contato.telefone">{{contato.telefone}}</a>
+            </q-item-label>
+            <q-item-label>
+              Telefone
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item class="col-12">
+          <q-item-section class="col-1" style="font-size: 2em">
+            <q-icon name="mdi-email" />
+          </q-item-section>
+          <q-item-section class="col-11">
+            <q-item-label>
+              <a :href="'mailto:'+ contato.email">{{contato.email}}</a>
+            </q-item-label>
+            <q-item-label>
+              Email
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+      </div>
       <div class="row items-end no-wrap col-12">
         <div class="col"></div>
         <div class="q-gutter-sm">
@@ -61,17 +63,17 @@
 
     <q-card class="col-6 row">
       <span class="q-pa-md text-h5 col-12">Local</span>
-        <!-- <TravelMap class="travel-map"/> -->
-      <q-item class="row">
+        <span>aqui vai um mapa</span>
+      <q-item class="row col-12" v-for="endereco in pessoa.endereco" :key="endereco.referencia">
         <q-item-section class="col-1" style="font-size: 2em">
           <q-icon name="mdi-map-marker" />
         </q-item-section>
         <q-item-section class="col-11">
           <q-item-label>
-            {{pessoa.endereco.logradouro + ' ' +pessoa.endereco.rua }}, {{pessoa.endereco.numero}}
+            {{endereco.logradouro + ' ' +endereco.rua }}, {{endereco.numero}}
           </q-item-label>
           <q-item-label>
-            {{pessoa.endereco.referencia}}
+            {{endereco.referencia}}
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -432,11 +434,13 @@ export default {
         nome: 'Fulana de Tal',
         empresa: 'Acme inc.',
         status: 'Ativo',
-        contato: {
-          ddd: '45',
-          celular: '99555-5555',
-          email: 'fulana@email.com',
-        },
+        contato: [
+          {
+            telefone: '45995555555',
+            email: 'fulana@email.com',
+            descricao: 'Trabalho'
+          }
+        ],
         social: {
           whatsapp: '',
           facebook: '',
@@ -444,19 +448,18 @@ export default {
           twitter: '',
           linkedin: '',
         },
-        endereco: {
+        endereco: [
+          {
           logradouro: 'Avenida',
           rua: 'Brasil',
           numero: '4019',
           referencia: 'Trabalho',
           maps: {}
-        },
+          }
+        ],
         oportunidades: [
           {
-            status: '',
-            valor: ''
-          },
-          {
+            moeda:'',
             status: '',
             valor: ''
           }
