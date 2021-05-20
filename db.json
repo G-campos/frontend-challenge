@@ -2,6 +2,7 @@
   "": ["server run"],
   "pessoa": {
     "id": 1,
+    "foto": "https://cdn.quasar.dev/img/avatar2.jpg",
     "nome": "Fulana de Tal",
     "empresa": "Acme inc.",
     "status": "Ativo",
@@ -29,12 +30,44 @@
       "maps": {}
     }]
   },
-  "oportunidades": [{
-    "pessoaId": "",
-    "moeda": "",
-    "status": "",
-    "valor": ""
-  }],
+  "oportunidades": [
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "ganha",
+      "valor": "12000"
+    },
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "ganha",
+      "valor": "6000"
+    },
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "ganha",
+      "valor": "800"
+    },
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "perdida",
+      "valor": "41000"
+    },
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "aberta",
+      "valor": "8400"
+    },
+    {
+      "pessoaId": 1,
+      "moeda": "R$",
+      "status": "descartada",
+      "valor": "650"
+    }
+  ],
   "statusOportunidades": [
     "Ganhas",
     "Perdidas",
@@ -50,7 +83,8 @@
     "avencer": "3.105,00",
     "pagos": "3.105,00"
   },
-  "atividades": [{
+  "atividades": [
+    {
       "pessoaId": "1",
       "tipo": "ligacao",
       "descricao": "Ligação de agendamento da reunião",
@@ -66,7 +100,7 @@
       "cliente": "Abigail Fisher",
       "data": "17/05/2021",
       "hora": "15:00",
-      "status": "prevista"
+      "status": "previsto"
     },
     {
       "pessoaId": "1",
@@ -75,7 +109,7 @@
       "cliente": "Jeffery King",
       "data": "18/05/2021",
       "hora": "09:45",
-      "status": "prevista"
+      "status": "previsto"
     },
     {
       "pessoaId": "1",
@@ -84,7 +118,7 @@
       "cliente": "Lawrence Kelly",
       "data": "18/05/2021",
       "hora": "15:00",
-      "status": "prevista"
+      "status": "previsto"
     },
     {
       "pessoaId": "1",
@@ -93,7 +127,7 @@
       "cliente": "Erica Collins",
       "data": "12/05/2021",
       "hora": "10:00",
-      "status": "concluida"
+      "status": "concluido"
     },
     {
       "pessoaId": "1",
@@ -152,7 +186,7 @@
     "total",
     "atraso",
     "andamento",
-    "prevista",
-    "concluida"
+    "previsto",
+    "concluido"
   ]
 }

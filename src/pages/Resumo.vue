@@ -6,7 +6,7 @@
       <q-item class="row col-12">
         <div class="q-pr-sm">
           <q-avatar size="80px">
-            <img src="https://cdn.quasar.dev/img/avatar2.jpg">
+            <img :src="pessoa.foto">
           </q-avatar>
         </div>
         <q-item-section>
@@ -60,7 +60,7 @@
         </div>
       </div>
     </q-card>
-
+    <!-- GO mapa -->
     <q-card class="col-6 row">
       <span class="q-pa-md text-h5 col-12">Local</span>
         <span>aqui vai um mapa</span>
@@ -78,24 +78,26 @@
         </q-item-section>
       </q-item>
     </q-card>
-
+    <!-- GO oportunidades -->
     <q-card class="col-6 row">
-      <span class="q-pa-md text-h5 col-12">
-        Oportunidades ({{totalOportunidades}})
-        <q-btn flat round icon="mdi-information" />
-      </span>
+      <div class="col-12 row q-pt-md q-pl-md">
+        <span class="text-h5 col-10 q-pr-md">
+          Oportunidades ({{totalOportunidades}})
+        </span>
+        <q-btn flat round icon="mdi-information" class="col-2 q-pr-md"/>
+      </div>
       <q-item class="col-6 row">
         <q-item-section class="col-2" style="font-size: 2em">
           <q-chip square>
             <q-avatar color="green" text-color="white">{{totalOportunidades}}</q-avatar>
           </q-chip>
         </q-item-section>
-        <q-item-section class="col-10">
+        <q-item-section class="col-10 q-pl-sm">
           <q-item-label>
             {{statusOportunidades[0]}}
           </q-item-label>
           <q-item-label>
-            R$ {{oportunidades.ganhas}}
+            R$ <!-- {{oportunidades.ganhas}} -->
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -106,12 +108,12 @@
             <q-avatar color="red" text-color="white">{{totalOportunidades}}</q-avatar>
           </q-chip>
         </q-item-section>
-        <q-item-section class="col-10">
+        <q-item-section class="col-10 q-pl-sm">
           <q-item-label>
             {{statusOportunidades[1]}}
           </q-item-label>
           <q-item-label>
-            R$ {{oportunidades.perdidas}}
+            R$ <!-- {{oportunidade.perdidas}} -->
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -122,12 +124,12 @@
             <q-avatar color="blue" text-color="white">{{totalOportunidades}}</q-avatar>
           </q-chip>
         </q-item-section>
-        <q-item-section class="col-10">
+        <q-item-section class="col-10 q-pl-sm">
           <q-item-label>
             {{statusOportunidades[2]}}
           </q-item-label>
           <q-item-label>
-            {{oportunidades.abertas}}
+            <!-- {{oportunidades.abertas}} -->
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -138,12 +140,12 @@
             <q-avatar color="brown" text-color="white">{{totalOportunidades}}</q-avatar>
           </q-chip>
         </q-item-section>
-        <q-item-section class="col-11">
+        <q-item-section class="col-11 q-pl-sm">
           <q-item-label>
             {{statusOportunidades[3]}}
           </q-item-label>
           <q-item-label>
-            {{oportunidades.descartadas}}
+            <!-- {{oportunidades.descartadas}} -->
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -152,7 +154,7 @@
         <q-btn flat color="primary" label="VER TODAS OPORTUNIDADES" />
       </q-item>
     </q-card>
-
+    <!-- GO crédito -->
     <q-card class="col-6 row">
       <span class="q-pa-md text-h5 col-12">
         Limite de crédito
@@ -178,7 +180,7 @@
         </q-item-section>
       </q-item>
     </q-card>
-
+    <!-- GO Vendas -->
     <q-card class="col-6 row">
       <span class="q-pa-md text-h5 col-12">
         Vendas
@@ -191,13 +193,13 @@
         </q-item-section>
       </q-item>
     </q-card>
-
+    <!-- GO Titulos -->
     <q-card class="col-6 row">
       <span class="q-pa-md text-h5 col-12">
         Títulos financeiros
       </span>
       <q-item class="col-12">
-        <q-item-section class="col">
+        <q-item-section class="col-1 q-mr-sm">
           <q-chip square>
             <q-avatar color="red" text-color="white">1</q-avatar>
           </q-chip>
@@ -213,7 +215,7 @@
       </q-item>
 
       <q-item class="col-12">
-        <q-item-section class="col">
+        <q-item-section class="col-1 q-mr-sm">
           <q-chip square>
             <q-avatar color="orange" text-color="white">2</q-avatar>
           </q-chip>
@@ -229,7 +231,7 @@
       </q-item>
 
       <q-item class="col-12">
-        <q-item-section class="col">
+        <q-item-section class="col-1 q-mr-sm">
           <q-chip square>
             <q-avatar color="green" text-color="white">3</q-avatar>
           </q-chip>
@@ -258,11 +260,12 @@
           </q-input>
         </q-item-section>
       </q-item>
+
       <q-card-section class="row col-12">
-        <q-item class="col-2">
-          <q-item-section class="col">
+        <q-item class="col-2 q-pr-sm">
+          <q-item-section class="col-1 q-mr-lg">
             <q-chip square>
-              <q-avatar color="brown" text-color="white">atividades.total</q-avatar>
+              <q-avatar color="brown" text-color="white">{{atividadeContador.total}}</q-avatar>
             </q-chip>
           </q-item-section>
           <q-item-section class="col-8">
@@ -271,34 +274,34 @@
             </q-item-label>
           </q-item-section>
         </q-item>
-        <q-item class="col-2">
-          <q-item-section class="col">
+        <q-item class="col-2 q-pr-sm">
+          <q-item-section class="col-1 q-mr-lg">
             <q-chip square>
-              <q-avatar color="red" text-color="white">atividades.atraso</q-avatar>
+              <q-avatar color="red" text-color="white">{{atividadeContador.atraso}}</q-avatar>
             </q-chip>
           </q-item-section>
           <q-item-section class="col-8">
             <q-item-label>
-              Em atraso
+              Atraso
             </q-item-label>
           </q-item-section>
         </q-item>
-        <q-item class="col-2">
-          <q-item-section class="col">
+        <q-item class="col-3 q-pr-xs">
+          <q-item-section class="col-1 q-mr-lg">
             <q-chip square>
-              <q-avatar color="blue" text-color="white">atividades.andamento</q-avatar>
+              <q-avatar color="blue" text-color="white">{{atividadeContador.andamento}}</q-avatar>
             </q-chip>
           </q-item-section>
           <q-item-section class="col-8">
             <q-item-label>
-              Em andamento
+              Andamento
             </q-item-label>
           </q-item-section>
         </q-item>
-        <q-item class="col-2">
-          <q-item-section class="col">
+        <q-item class="col-2 q-pl-xs">
+          <q-item-section class="col-1 q-mr-lg">
             <q-chip square>
-              <q-avatar color="yellow" text-color="white">atividades.previstas</q-avatar>
+              <q-avatar color="orange" text-color="white">{{atividadeContador.previsto}}</q-avatar>
             </q-chip>
           </q-item-section>
           <q-item-section class="col-8">
@@ -308,9 +311,9 @@
           </q-item-section>
         </q-item>
         <q-item class="col-2">
-          <q-item-section class="col">
+          <q-item-section class="col-1 q-mr-lg">
             <q-chip square>
-              <q-avatar color="green" text-color="white">atividades.concluidas</q-avatar>
+              <q-avatar color="green" text-color="white">{{atividadeContador.concluido}}</q-avatar>
             </q-chip>
           </q-item-section>
           <q-item-section class="col-8">
@@ -418,59 +421,19 @@
 
 <script>
 import Chart from 'src/components/charts/Chart.vue'
-
+import { QSpinnerGears, QSpinnerHourglass } from 'quasar'
 export default {
   name: 'PageIndex',
   components: {
     Chart
-
   },
   data() {
     return {
       lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       busca: '',
       loadingState: false,
-      pessoa: {
-        nome: 'Fulana de Tal',
-        empresa: 'Acme inc.',
-        status: 'Ativo',
-        contato: [
-          {
-            telefone: '45995555555',
-            email: 'fulana@email.com',
-            descricao: 'Trabalho'
-          }
-        ],
-        social: {
-          whatsapp: '',
-          facebook: '',
-          instagram: '',
-          twitter: '',
-          linkedin: '',
-        },
-        endereco: [
-          {
-          logradouro: 'Avenida',
-          rua: 'Brasil',
-          numero: '4019',
-          referencia: 'Trabalho',
-          maps: {}
-          }
-        ],
-        oportunidades: [
-          {
-            moeda:'',
-            status: '',
-            valor: ''
-          }
-        ]
-      },
-      oportunidades: {
-        ganhas: '20.000,00',
-        perdidas: '4.300,00',
-        abertas: 'Diversas moedas',
-        descartadas: '-'
-      },
+      pessoa: {},
+      oportunidades: [],
       totalOportunidades: Math.floor(Math.random() * 10),
       statusOportunidades: [
         'Ganhas',
@@ -478,120 +441,22 @@ export default {
         'Abertas',
         'Descartadas'
       ],
-      credito: {
-        concedido: '12.000,20',
-        disponivel: '3.105,00'
+      credito: {},
+      titulos: {},
+      atividades:[],
+      atividadeContador: {
+        total: 0,
+        atraso: 0,
+        andamento: 0,
+        previsto: 0,
+        concluido: 0
       },
-      titulos: {
-        vencidos: '3.105,00',
-        avencer: '3.105,00',
-        pagos: '3.105,00'
-      },
-      atividades:[
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-        {
-          pessoaId:'1',
-          tipo:'reuniao',
-          descricao:'Reunião orçamento',
-          cliente:'Abigail Fisher',
-          data:'17/05/2021',
-          hora:'15:00',
-          status: 'prevista'
-        },
-        {
-          pessoaId:'1',
-          tipo:'email',
-          descricao:'Email documentação',
-          cliente:'Jeffery King',
-          data:'18/05/2021',
-          hora:'09:45',
-          status: 'prevista'
-        },
-        {
-          pessoaId:'1',
-          tipo:'almoco',
-          descricao:'Almoço coorporativo',
-          cliente:'Lawrence Kelly',
-          data:'18/05/2021',
-          hora:'15:00',
-          status: 'prevista'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'concluida'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-        {
-          pessoaId:'1',
-          tipo:'ligacao',
-          descricao:'Ligação de agendamento da reunião',
-          cliente:'Erica Collins',
-          data:'12/05/2021',
-          hora:'10:00',
-          status: 'atraso'
-        },
-      ],
       atividadesTipo: [
         'ligacao',
         'reuniao',
         'email',
         'almoco',
         'apresentacao'
-      ],
-      atividadesStatus: [
-        'total',
-        'atraso',
-        'andamento',
-        'prevista',
-        'concluida'
       ],
       thumbStyle: {
         right: '4px',
@@ -608,11 +473,243 @@ export default {
         opacity: 0.2
       },
     }
+  },
+  created () {
+    this.$q.loading.show({
+      spinner: QSpinnerHourglass,
+      spinnerColor: 'blue',
+      message: 'Carregando dados'
+    })
+    this.getPessoa ()
+  },
+  methods: {
+    async getPessoa () {
+      await this.$axios.get('http://localhost:3000/pessoa?id=1')
+        .then(response=> {
+          if (response.data) {
+            this.pessoa = response.data
+            this.getOportunidades(this.pessoa.id)
+            this.getAtividades(this.pessoa.id)
+            this.getCredito ()
+            this.getTitulos ()
+            this.$q.notify({
+              color: 'green',
+              position: 'top',
+              icon: 'mdi-check',
+              message: 'Dados existentes!'
+            })
+          } else {
+            console.error(response.data)
+            this.$q.notify({
+              color: 'warning',
+              position: 'top',
+              message: 'Falha ao buscar dados : ' + response.data,
+              icon: 'warning'
+            })
+          }
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 5000)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            color: 'warning',
+            position: 'top',
+            message: 'Falha ao buscar dados : ' + error,
+            icon: 'warning'
+          })
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 2000)
+        })
+    },
+    async getOportunidades (pessoaId) {
+      await this.$axios.get('http://localhost:3000/oportunidades?pessoaId=' + pessoaId)
+        .then(response=> {
+          if (response.data) {
+            this.oportunidades = response.data
+            this.$q.notify({
+              color: 'green',
+              position: 'top',
+              icon: 'mdi-check',
+              message: 'Dados existentes!'
+            })
+          } else {
+            console.error(response.data)
+            this.$q.notify({
+              color: 'warning',
+              position: 'top',
+              message: 'Falha ao buscar dados : ' + response.data,
+              icon: 'warning'
+            })
+          }
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 5000)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            color: 'warning',
+            position: 'top',
+            message: 'Falha ao buscar dados : ' + error,
+            icon: 'warning'
+          })
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 2000)
+        })
+    },
+    async getCredito () {
+      await this.$axios.get('http://localhost:3000/credito')
+        .then(response=> {
+          if (response.data) {
+            this.credito = response.data
+            this.$q.notify({
+              color: 'green',
+              position: 'top',
+              icon: 'mdi-check',
+              message: 'Dados existentes!'
+            })
+          } else {
+            console.error(response.data)
+            this.$q.notify({
+              color: 'warning',
+              position: 'top',
+              message: 'Falha ao buscar dados : ' + response.data,
+              icon: 'warning'
+            })
+          }
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 5000)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            color: 'warning',
+            position: 'top',
+            message: 'Falha ao buscar dados : ' + error,
+            icon: 'warning'
+          })
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 2000)
+        })
+    },
+    async getTitulos () {
+      await this.$axios.get('http://localhost:3000/titulos')
+        .then(response=> {
+          if (response.data) {
+            this.titulos = response.data
+            this.$q.notify({
+              color: 'green',
+              position: 'top',
+              icon: 'mdi-check',
+              message: 'Dados existentes!'
+            })
+          } else {
+            console.error(response.data)
+            this.$q.notify({
+              color: 'warning',
+              position: 'top',
+              message: 'Falha ao buscar dados : ' + response.data,
+              icon: 'warning'
+            })
+          }
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 5000)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            color: 'warning',
+            position: 'top',
+            message: 'Falha ao buscar dados : ' + error,
+            icon: 'warning'
+          })
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 2000)
+        })
+    },
+    async getAtividades (pessoaId) {
+      await this.$axios.get('http://localhost:3000/atividades?pessoaId=' + pessoaId)
+        .then(response=> {
+          if (response.data) {
+            this.atividades = response.data
+            this.atividadeContador.total = this.atividades.length
+
+            for (let index = 0; index < this.atividades.length; index++) {
+              const element = this.atividades[index];
+              switch (element.status) {
+                case 'atraso':
+                  this.atividadeContador.atraso = element.status.length
+                  console.log('atraso: ' + element.status)
+                  break;
+                case 'andamento':
+                  this.atividadeContador.andamento = element.status.length
+                  console.log('andamento: ' + element.status)
+                  break;
+                case 'previsto':
+                  this.atividadeContador.previsto = element.status.length
+                  console.log('previsto: ' + element.status)
+                  break;
+                case 'concluido':
+                  this.atividadeContador.concluido = element.status.length
+                  console.log('concluido: ' + element.status)
+                  break;
+                default:
+                  break;
+              }
+              /* console.log(element.status.length) */
+            }
+            this.$q.notify({
+              color: 'green',
+              position: 'top',
+              icon: 'mdi-check',
+              message: 'Dados existentes!'
+            })
+          } else {
+            console.error(response.data)
+            this.$q.notify({
+              color: 'warning',
+              position: 'top',
+              message: 'Falha ao buscar dados : ' + response.data,
+              icon: 'warning'
+            })
+          }
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 5000)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            color: 'warning',
+            position: 'top',
+            message: 'Falha ao buscar dados : ' + error,
+            icon: 'warning'
+          })
+          this.timer = setTimeout(() => {
+            this.$q.loading.hide()
+            this.timer = void 0
+          }, 2000)
+        })
+    },
   }
 }
 </script>
 <style lang="scss" scoped>
-.travel-map {
-  height: 400px;
-}
 </style>

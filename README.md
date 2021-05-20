@@ -6,6 +6,10 @@ TOTVS Front-end Challenge
 ```bash
 npm install
 ```
+## Start back-end mockup
+```bash
+npx json-server db.json
+```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
